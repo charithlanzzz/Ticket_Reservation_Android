@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nameLabel" type="id"/>
+    <item name="nameEditText" type="id"/>
+    <item name="mobileLabel" type="id"/>
+    <item name="mobileEditText" type="id"/>
+    <item name="emailLabel" type="id"/>
+    <item name="emailEditText" type="id"/>
+    <item name="createAccountButton" type="id"/>
+</resources>
