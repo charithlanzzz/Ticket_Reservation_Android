@@ -24,8 +24,13 @@
         <!-- Add the RegistrationActivity declaration -->
         <activity android:name=".activities.RegistrationActivity" />
 
-        <!-- Add the RegistrationActivity declaration -->
+        <!-- Add the DashboardActivity declaration -->
         <activity android:name=".activities.DashboardActivity" />
+
+        <!-- Add the UserDetailsActivity declaration -->
+        <activity android:name=".activities.UserDetailsActivity" />
+
+
 
     </application>
 

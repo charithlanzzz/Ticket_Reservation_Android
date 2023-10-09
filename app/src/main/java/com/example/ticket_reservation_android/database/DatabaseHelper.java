@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.ticket_reservation_android.models.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "MyAppDatabase";
     private static final int DATABASE_VERSION = 1;
@@ -50,9 +53,59 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public User getUserByUsernameAndPassword(String username, String password) {
+    public List<User> getAllUsers() {
+        List<User> userList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         String[] columns = {COLUMN_ID, COLUMN_NAME, COLUMN_MOBILE_NUMBER, COLUMN_EMAIL, COLUMN_USERNAME};
+
+        Cursor cursor = db.query(TABLE_USERS, columns, null, null, null, null, null);
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                int idIndex = cursor.getColumnIndex(COLUMN_ID);
+                int nameIndex = cursor.getColumnIndex(COLUMN_NAME);
+                int mobileNumberIndex = cursor.getColumnIndex(COLUMN_MOBILE_NUMBER);
+                int emailIndex = cursor.getColumnIndex(COLUMN_EMAIL);
+                int usernameIndex = cursor.getColumnIndex(COLUMN_USERNAME);
+
+                if (idIndex >= 0 && nameIndex >= 0 && mobileNumberIndex >= 0 && emailIndex >= 0 && usernameIndex >= 0) {
+                    String id = cursor.getString(idIndex);
+                    String name = cursor.getString(nameIndex);
+                    String mobileNumber = cursor.getString(mobileNumberIndex);
+                    String email = cursor.getString(emailIndex);
+                    String username = cursor.getString(usernameIndex);
+
+                    User user = new User(id, name, mobileNumber, email, username);
+                    userList.add(user);
+                } else {
+                    // Handle the case where one or more columns were not found
+                    // You can log an error or handle it as needed.
+                }
+            }
+            cursor.close();
+        }
+
+        return userList;
+    }
+
+    public int updateUser(User user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, user.getName());
+        values.put(COLUMN_MOBILE_NUMBER, user.getMobileNumber());
+        values.put(COLUMN_EMAIL, user.getEmail());
+
+        // Update user data in the table
+        int rowsAffected = db.update(TABLE_USERS, values, COLUMN_USERNAME + " = ?",
+                new String[]{user.getUsername()});
+        db.close();
+        return rowsAffected;
+    }
+
+    // Add this method to DatabaseHelper.java
+    public User getUserByUsernameAndPassword(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COLUMN_ID, COLUMN_NAME, COLUMN_MOBILE_NUMBER, COLUMN_EMAIL};
         String selection = COLUMN_USERNAME + " = ? AND " + COLUMN_PASSWORD + " = ?";
         String[] selectionArgs = {username, password};
 
@@ -76,13 +129,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
 
-
         if (cursor != null) {
             cursor.close();
         }
 
         return user;
     }
+    // ... (other methods)
 
     @Override
     public void onCreate(SQLiteDatabase db) {

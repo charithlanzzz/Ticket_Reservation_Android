@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ticket_reservation_android.R;
 import com.example.ticket_reservation_android.database.DatabaseHelper;
 import com.example.ticket_reservation_android.models.User;
+import com.example.ticket_reservation_android.session.SessionManager; // Import the SessionManager class
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -23,6 +24,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button registerButton;
 
     private DatabaseHelper databaseHelper;
+    private SessionManager sessionManager; // Initialize SessionManager
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
         // Initialize database helper
         databaseHelper = new DatabaseHelper(this);
+
+        // Initialize SessionManager
+        sessionManager = new SessionManager(getApplicationContext());
 
         // Set click listener for registerButton
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -65,9 +70,20 @@ public class RegistrationActivity extends AppCompatActivity {
                         // User insertion successful
                         Toast.makeText(RegistrationActivity.this, "User registration successful", Toast.LENGTH_SHORT).show();
 
-                        // Navigate to the login page
-                        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
-                        startActivity(intent);
+                        // Save the session with the full user details
+                        sessionManager.saveSession(user);
+
+                        // Navigate to the login page or DashboardActivity
+                        if (sessionManager.isLoggedIn()) {
+                            // User is already logged in, navigate to DashboardActivity
+                            Intent intent = new Intent(RegistrationActivity.this, DashboardActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // User is not logged in, navigate to LoginActivity
+                            Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        }
+
                         finish(); // Finish the current activity
                     } else {
                         // User insertion failed

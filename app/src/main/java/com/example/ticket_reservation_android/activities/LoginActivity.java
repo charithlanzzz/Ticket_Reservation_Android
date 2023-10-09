@@ -11,13 +11,17 @@ import android.widget.Toast;
 import com.example.ticket_reservation_android.R;
 import com.example.ticket_reservation_android.database.DatabaseHelper;
 import com.example.ticket_reservation_android.models.User;
+import com.example.ticket_reservation_android.session.SessionManager;
 
 public class LoginActivity extends AppCompatActivity {
+
+//    SessionManager sessionManager = new SessionManager(getApplicationContext());
     private EditText usernameEditText;
     private EditText passwordEditText;
     private Button loginButton;
 
     private DatabaseHelper databaseHelper;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
 
         // Initialize database helper
         databaseHelper = new DatabaseHelper(this);
+
+        // Initialize SessionManager here, using the activity context
+        sessionManager = new SessionManager(this);
 
         // Set a click listener for the login button
         loginButton.setOnClickListener(new View.OnClickListener() {
