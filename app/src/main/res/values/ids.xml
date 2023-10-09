@@ -16,6 +16,9 @@
 
     <item name="createAccountLink" type="id"/>
 
+    <item name="updateButton" type="id"/>
+
+
     <item name="reservationsButton" type="id"/>
     <item name="reserveTrainButton" type="id"/>
     <item name="trainsButton" type="id"/>

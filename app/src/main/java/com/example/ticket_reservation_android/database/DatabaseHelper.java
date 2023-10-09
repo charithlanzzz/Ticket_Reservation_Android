@@ -95,12 +95,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_MOBILE_NUMBER, user.getMobileNumber());
         values.put(COLUMN_EMAIL, user.getEmail());
 
-        // Update user data in the table
-        int rowsAffected = db.update(TABLE_USERS, values, COLUMN_USERNAME + " = ?",
-                new String[]{user.getUsername()});
-        db.close();
-        return rowsAffected;
+
+        try {
+            // Begin a transaction
+            db.beginTransaction();
+
+            // Update user data in the table
+            int rowsAffected = db.update(TABLE_USERS, values, COLUMN_USERNAME + " = ?", new String[]{user.getUsername()});
+
+            // Set the transaction as successful
+            db.setTransactionSuccessful();
+
+            return rowsAffected;
+        } finally {
+            // End the transaction
+            db.endTransaction();
+            db.close();
+        }
     }
+
+
 
     // Add this method to DatabaseHelper.java
     public User getUserByUsernameAndPassword(String username, String password) {
