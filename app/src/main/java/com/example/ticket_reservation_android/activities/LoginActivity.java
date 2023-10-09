@@ -50,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Check credentials
                 User user = databaseHelper.getUserByUsernameAndPassword(username, password);
 
+                sessionManager.saveSession(user);
+
                 if (user != null) {
                     // If credentials are valid, navigate to another activity (e.g., DashboardActivity)
                     Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();

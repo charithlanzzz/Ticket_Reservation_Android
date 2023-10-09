@@ -30,6 +30,9 @@
         <!-- Add the UserDetailsActivity declaration -->
         <activity android:name=".activities.UserDetailsActivity" />
 
+        <!-- Add the LogoutActivity declaration -->
+        <activity android:name=".activities.LogoutActivity" />
+
 
 
     </application>

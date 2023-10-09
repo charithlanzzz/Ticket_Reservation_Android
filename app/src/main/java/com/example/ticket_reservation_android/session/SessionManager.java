@@ -24,12 +24,14 @@ public class SessionManager {
     }
 
     public void saveSession(User user) {
+        if (user != null) {
         editor.putString(KEY_NAME, user.getName());
         editor.putString(KEY_MOBILE_NUMBER, user.getMobileNumber());
         editor.putString(KEY_EMAIL, user.getEmail());
         editor.putString(KEY_USERNAME, user.getUsername());
         editor.putBoolean(KEY_LOGGED_IN, true);
         editor.apply();
+        }
     }
 
     public String getUsername() {
