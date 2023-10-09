@@ -2,9 +2,9 @@ package com.example.ticket_reservation_android.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import com.example.ticket_reservation_android.models.User;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -50,6 +50,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public User getUserByUsernameAndPassword(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COLUMN_ID, COLUMN_NAME, COLUMN_MOBILE_NUMBER, COLUMN_EMAIL, COLUMN_USERNAME};
+        String selection = COLUMN_USERNAME + " = ? AND " + COLUMN_PASSWORD + " = ?";
+        String[] selectionArgs = {username, password};
+
+        Cursor cursor = db.query(TABLE_USERS, columns, selection, selectionArgs, null, null, null);
+        User user = null;
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int nameIndex = cursor.getColumnIndex(COLUMN_NAME);
+            int mobileNumberIndex = cursor.getColumnIndex(COLUMN_MOBILE_NUMBER);
+            int emailIndex = cursor.getColumnIndex(COLUMN_EMAIL);
+
+            if (nameIndex >= 0 && mobileNumberIndex >= 0 && emailIndex >= 0) {
+                String name = cursor.getString(nameIndex);
+                String mobileNumber = cursor.getString(mobileNumberIndex);
+                String email = cursor.getString(emailIndex);
+
+                user = new User(name, mobileNumber, email, username, password);
+            } else {
+                // Handle the case where one or more columns were not found
+                // You can log an error or return a default user object, for example.
+            }
+        }
+
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return user;
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_USERS);
@@ -60,4 +94,3 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Handle database upgrades if needed
     }
 }
-
