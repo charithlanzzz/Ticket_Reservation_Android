@@ -1,5 +1,6 @@
 package com.example.ticket_reservation_android.activities;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -18,6 +19,7 @@ public class DashboardActivity extends AppCompatActivity {
     private Button reservationsButton;
     private Button reserveTrainButton;
     private Button trainsButton;
+
 
     private void clearUserSession() {
         // Get a reference to SharedPreferences
@@ -66,6 +68,7 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,5 +103,21 @@ public class DashboardActivity extends AppCompatActivity {
                 // You can navigate to the trains screen or perform other actions here
             }
         });
+
+
+        // Handle back button presses using the onBackPressedDispatcher
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button press
+                // In this example, we'll navigate to the user's profile instead of the login page
+                Intent profileIntent = new Intent(DashboardActivity.this, UserDetailsActivity.class);
+                startActivity(profileIntent);
+                finish(); // Finish the DashboardActivity so the user can't navigate back to it
+            }
+        };
+
+        // Add the callback to the onBackPressedDispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 }

@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize SessionManager here, using the activity context
         sessionManager = new SessionManager(this);
 
+
         // Set a click listener for the login button
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
