@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Ticket_Reservation_Android"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Add the RegistrationActivity declaration -->
+        <activity android:name=".activities.RegistrationActivity" />
+
+        <!-- Add the RegistrationActivity declaration -->
+        <activity android:name=".activities.DashboardActivity" />
+
     </application>
+
+
 
 </manifest>

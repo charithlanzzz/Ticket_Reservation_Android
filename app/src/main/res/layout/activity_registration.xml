@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <TextView
         android:id="@+id/titleTextView"
@@ -88,8 +88,8 @@
 
     <TextView
         android:id="@+id/usernameLabel"
-        android:layout_width="62dp"
-        android:layout_height="18dp"
+        android:layout_width="79dp"
+        android:layout_height="17dp"
         android:layout_marginTop="16dp"
         android:text="Username:"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,8 +111,8 @@
 
     <TextView
         android:id="@+id/passwordLabel"
-        android:layout_width="60dp"
-        android:layout_height="17dp"
+        android:layout_width="76dp"
+        android:layout_height="16dp"
         android:layout_marginTop="20dp"
         android:text="Password:"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +134,7 @@
         android:layout_marginTop="8dp" />
 
     <Button
-        android:id="@+id/createAccountButton"
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="Create Account"

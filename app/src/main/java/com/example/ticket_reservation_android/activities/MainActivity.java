@@ -1,14 +1,16 @@
-package com.example.ticket_reservation_android;
+package com.example.ticket_reservation_android.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.ticket_reservation_android.R;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_registration);
+        setContentView(R.layout.activity_registration);
     }
 }
