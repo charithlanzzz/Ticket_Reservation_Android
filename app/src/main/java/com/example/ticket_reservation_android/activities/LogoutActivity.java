@@ -17,6 +17,9 @@ public class LogoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logout);
 
+
+
+
         // Initialize SessionManager
         sessionManager = new SessionManager(this);
 
