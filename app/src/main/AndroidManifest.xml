@@ -33,6 +33,10 @@
         <!-- Add the LogoutActivity declaration -->
         <activity android:name=".activities.LogoutActivity" />
 
+        <!-- Add the ReservationsActivity declaration -->
+        <activity android:name=".activities.ReservationsActivity" />
+
+        <!-- Add the ReserveActivity declaration -->
 
 
     </application>
