@@ -94,7 +94,11 @@ public class DashboardActivity extends AppCompatActivity {
         reserveTrainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to navigate to the ReserveActivity
+                // Create an Intent to navigate to the ReservationsActivity
+                Intent reserveIntent = new Intent(DashboardActivity.this, ReserveTrainActivity.class);
+
+                // Start the ReservationsActivity
+                startActivity(reserveIntent);
 
             }
         });
