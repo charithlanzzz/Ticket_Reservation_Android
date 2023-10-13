@@ -76,7 +76,6 @@ public class DashboardActivity extends AppCompatActivity {
 
         // Initialize UI elements
         CardView reservationsButton = findViewById(R.id.reservationsButton);
-        CardView reserveTrainButton = findViewById(R.id.reserveTrainButton);
         CardView trainsButton = findViewById(R.id.trainsButton);
 
         // Set click listeners for dashboard buttons
@@ -109,7 +108,7 @@ public class DashboardActivity extends AppCompatActivity {
             public void handleOnBackPressed() {
                 // Handle the back button press
                 // In this example, we'll navigate to the user's profile instead of the login page
-                Intent profileIntent = new Intent(DashboardActivity.this, UserDetailsActivity.class);
+                Intent profileIntent = new Intent(DashboardActivity.this, DashboardActivity.class);
                 startActivity(profileIntent);
                 finish(); // Finish the DashboardActivity so the user can't navigate back to it
             }
