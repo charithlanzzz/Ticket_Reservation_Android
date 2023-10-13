@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -18,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:id="@+id/dateTextView"
-        android:text="Date"
+        android:text="Date 1"
         android:textSize="16sp" />
 
     <TextView
@@ -26,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:id="@+id/timeTextView"
-        android:text="Time"
+        android:text="Time 1"
         android:textSize="16sp" />
 
     <Button

@@ -42,38 +42,6 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Card 2: Reserve a Train (Button) -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/reserveTrainButton"
-        android:layout_width="240dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="onReserveTrainClick"
-        android:padding="8dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reserve a Train"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-
-            <!-- Add any other content for this card here -->
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
     <!-- Card 3: Trains (Button) -->
     <androidx.cardview.widget.CardView
         android:id="@+id/trainsButton"

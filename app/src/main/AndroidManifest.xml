@@ -37,9 +37,6 @@
         <activity android:name=".activities.ReservationsActivity" />
 
         <!-- Add the ReservationsActivity declaration -->
-        <activity android:name=".activities.ReserveTrainActivity" />
-
-        <!-- Add the ReservationsActivity declaration -->
         <activity android:name=".activities.TrainsActivity" />
 
 
