@@ -28,11 +28,11 @@ public class ReservationsActivity extends AppCompatActivity {
 
         // Create a list of dummy reservation data
         reservationDataList = new ArrayList<>();
-        reservationDataList.add(new ReservationData("GreenTrain", "2023.05.25", "01.36PM"));
-        reservationDataList.add(new ReservationData("BlueTrain", "2023.05.27", "02.46PM"));
-        reservationDataList.add(new ReservationData("RedTrain", "2023.07.24", "08.56PM"));
-        reservationDataList.add(new ReservationData("YellowTrain", "2023.08.22", "04.36PM"));
-        reservationDataList.add(new ReservationData("PurpleTrain", "2023.05.25", "04.58PM"));
+        reservationDataList.add(new ReservationData("Fort-Badulla", "2023.10.25", "01.36PM"));
+        reservationDataList.add(new ReservationData("Fort-Matara", "2023.11.27", "02.46PM"));
+        reservationDataList.add(new ReservationData("Fort-Chilaw", "2023.10.24", "08.56PM"));
+        reservationDataList.add(new ReservationData("Fort-Kandy", "2023.10.22", "04.36PM"));
+        reservationDataList.add(new ReservationData("Fort-Galle", "2023.11.25", "04.58PM"));
 
         // Initialize the custom adapter
         adapter = new ReservationAdapter(this, R.layout.reservation_item, reservationDataList);

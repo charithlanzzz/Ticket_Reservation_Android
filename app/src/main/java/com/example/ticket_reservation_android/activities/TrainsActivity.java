@@ -28,11 +28,11 @@ public class TrainsActivity extends AppCompatActivity {
 
         // Create a list of dummy train data
         trainDataList = new ArrayList<>();
-        trainDataList.add(new TrainData("GreenTrain", "2023.05.25", "01.36PM"));
-        trainDataList.add(new TrainData("BlueTrain", "2023.05.27", "02.46PM"));
-        trainDataList.add(new TrainData("RedTrain", "2023.07.24", "08.56PM"));
-        trainDataList.add(new TrainData("YellowTrain", "2023.08.22", "04.36PM"));
-        trainDataList.add(new TrainData("PurpleTrain", "2023.05.25", "04.58PM"));
+        trainDataList.add(new TrainData("Fort-Ragama", "2023.10.25", "07.36PM"));
+        trainDataList.add(new TrainData("Fort-Gampaha", "2023.11.27", "04.46PM"));
+        trainDataList.add(new TrainData("Fort-Panadura", "2023.10.24", "03.56PM"));
+        trainDataList.add(new TrainData("Fort-Kandy", "2023.10.22", "02.52PM"));
+        trainDataList.add(new TrainData("Fort-Galle", "2023.11.25", "01.45PM"));
 
         // Initialize the custom adapter
         adapter = new TrainAdapter(this, R.layout.train_item, trainDataList);
