@@ -10,7 +10,22 @@
     android:textAlignment="center"
     tools:context=".activities.MainActivity">
 
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:text="DashBoard"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Card 1: Reservations (Button) -->
+
     <androidx.cardview.widget.CardView
         android:id="@+id/reservationsButton"
         android:layout_width="240dp"

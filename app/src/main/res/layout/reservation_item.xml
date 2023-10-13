@@ -6,6 +6,8 @@
     android:orientation="horizontal"
     android:padding="16dp">
 
+
+
     <TextView
         android:id="@+id/reservationNameTextView"
         android:layout_width="0dp"
