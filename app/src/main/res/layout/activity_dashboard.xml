@@ -20,22 +20,24 @@
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         android:onClick="onReservationsClick"
-        android:padding="8dp">
+        android:padding="8dp"
+        app:cardCornerRadius="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:background="#0F205C"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Reservations"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textStyle="bold" />
 
             <!-- Add any other content for this card here -->
 
@@ -51,22 +53,24 @@
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         android:onClick="onTrainsClick"
-        android:padding="8dp">
+        android:padding="8dp"
+        app:cardCornerRadius="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:background="#394855"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trains"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textStyle="bold" />
 
             <!-- Add any other content for this card here -->
 

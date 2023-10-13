@@ -31,8 +31,10 @@
         android:textSize="16sp" />
 
     <Button
+        android:id="@+id/viewButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bookButton"
-        android:text="Book" />
+        android:layout_height="37dp"
+        android:background="@drawable/rounded_button"
+        android:text="View"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

@@ -37,7 +37,7 @@ public class ReservationAdapter extends ArrayAdapter<ReservationData> {
             holder.reservationNameTextView = row.findViewById(R.id.reservationNameTextView);
             holder.dateTextView = row.findViewById(R.id.dateTextView);
             holder.timeTextView = row.findViewById(R.id.timeTextView);
-            holder.bookButton = row.findViewById(R.id.bookButton);
+            holder.viewButton = row.findViewById(R.id.viewButton);
 
             row.setTag(holder);
         } else {
@@ -50,7 +50,7 @@ public class ReservationAdapter extends ArrayAdapter<ReservationData> {
         holder.timeTextView.setText(reservationData.getTime());
 
         // Set click listener for the "Book" button
-        holder.bookButton.setOnClickListener(new View.OnClickListener() {
+        holder.viewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle the "Book" button click here
@@ -66,7 +66,7 @@ public class ReservationAdapter extends ArrayAdapter<ReservationData> {
         TextView reservationNameTextView;
         TextView dateTextView;
         TextView timeTextView;
-        Button bookButton;
+        Button viewButton;
     }
 }
 
